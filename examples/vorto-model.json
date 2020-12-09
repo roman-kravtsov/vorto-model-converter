@@ -1,0 +1,2155 @@
+{
+  "root": {
+    "name": "WasherWAT286H8SG",
+    "namespace": "com.bshg",
+    "version": "2.0.0",
+    "prettyFormat": "com.bshg:WasherWAT286H8SG:2.0.0"
+  },
+  "models": {
+    "com.bshg.programs:Washer:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "Washer",
+        "namespace": "com.bshg.programs",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.programs:Washer:2.0.0"
+      },
+      "type": "Functionblock",
+      "displayName": "Washer",
+      "description": "Function block model for Washer functionality of Home Appliances",
+      "category": "smarthome",
+      "fileName": "Washer.fbmodel",
+      "modelType": "FunctionblockModel",
+      "references": [
+        {
+          "name": "Program",
+          "namespace": "com.bshg.types.programs.washer.options",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+        },
+        {
+          "name": "Temperature",
+          "namespace": "com.bshg.types.programs.washer.options",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+        },
+        {
+          "name": "SpinSpeed",
+          "namespace": "com.bshg.types.programs.washer.options",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+        },
+        {
+          "name": "EventPresentState",
+          "namespace": "com.bshg.types.common",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.types.common:EventPresentState:2.0.0"
+        },
+        {
+          "name": "Program",
+          "namespace": "com.bshg.types.programs.washer.options",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+        },
+        {
+          "name": "Temperature",
+          "namespace": "com.bshg.types.programs.washer.options",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+        },
+        {
+          "name": "SpinSpeed",
+          "namespace": "com.bshg.types.programs.washer.options",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+        }
+      ],
+      "configurationProperties": [],
+      "statusProperties": [
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": true,
+          "name": "program",
+          "description": null,
+          "type": {
+            "name": "Program",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        },
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": true,
+          "name": "temperature",
+          "description": null,
+          "type": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        },
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": true,
+          "name": "spinSpeed",
+          "description": null,
+          "type": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        },
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": false,
+          "name": "delayedStart",
+          "description": "If this option is set, the program will be activated but not started until the defined time span elapses.",
+          "type": "INT",
+          "constraints": [
+            {
+              "type": "MIN",
+              "value": "0"
+            },
+            {
+              "type": "MAX",
+              "value": "86340"
+            }
+          ],
+          "attributes": [],
+          "multiple": false,
+          "primitive": true
+        },
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": false,
+          "name": "delayedStartUnit",
+          "description": null,
+          "type": "STRING",
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": true
+        }
+      ],
+      "faultProperties": [],
+      "events": [
+        {
+          "name": "SelectedProgramChanges",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": {
+                "name": "Program",
+                "namespace": "com.bshg.types.programs.washer.options",
+                "version": "2.0.0",
+                "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+              },
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": false
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        },
+        {
+          "name": "ActiveProgramChanged",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": {
+                "name": "Program",
+                "namespace": "com.bshg.types.programs.washer.options",
+                "version": "2.0.0",
+                "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+              },
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": false
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        },
+        {
+          "name": "TemperatureChanged",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": {
+                "name": "Temperature",
+                "namespace": "com.bshg.types.programs.washer.options",
+                "version": "2.0.0",
+                "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+              },
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": false
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        },
+        {
+          "name": "SpinSpeedChanged",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": {
+                "name": "SpinSpeed",
+                "namespace": "com.bshg.types.programs.washer.options",
+                "version": "2.0.0",
+                "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+              },
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": false
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        },
+        {
+          "name": "RemainingProgramTimeChanged",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": "INT",
+              "constraints": [
+                {
+                  "type": "MIN",
+                  "value": "0"
+                },
+                {
+                  "type": "MAX",
+                  "value": "86340"
+                }
+              ],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "unit",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        },
+        {
+          "name": "ProgramProgress",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": "INT",
+              "constraints": [
+                {
+                  "type": "MIN",
+                  "value": "0"
+                },
+                {
+                  "type": "MAX",
+                  "value": "100"
+                }
+              ],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "unit",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        },
+        {
+          "name": "ProgramFinished",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": {
+                "name": "EventPresentState",
+                "namespace": "com.bshg.types.common",
+                "version": "2.0.0",
+                "prettyFormat": "com.bshg.types.common:EventPresentState:2.0.0"
+              },
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": false
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        }
+      ],
+      "operations": [
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "name": "startWashing",
+          "description": null,
+          "result": null,
+          "params": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": false,
+              "name": "program",
+              "description": null,
+              "type": {
+                "name": "Program",
+                "namespace": "com.bshg.types.programs.washer.options",
+                "version": "2.0.0",
+                "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+              },
+              "constraints": [],
+              "multiple": false,
+              "primitive": false
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": false,
+              "name": "temperature",
+              "description": null,
+              "type": {
+                "name": "Temperature",
+                "namespace": "com.bshg.types.programs.washer.options",
+                "version": "2.0.0",
+                "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+              },
+              "constraints": [],
+              "multiple": false,
+              "primitive": false
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": false,
+              "name": "spinSpeed",
+              "description": null,
+              "type": {
+                "name": "SpinSpeed",
+                "namespace": "com.bshg.types.programs.washer.options",
+                "version": "2.0.0",
+                "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+              },
+              "constraints": [],
+              "multiple": false,
+              "primitive": false
+            }
+          ],
+          "breakable": false
+        }
+      ],
+      "superType": null
+    },
+    "com.bshg.common:RemoteControlActivationState:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "RemoteControlActivationState",
+        "namespace": "com.bshg.common",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.common:RemoteControlActivationState:2.0.0"
+      },
+      "type": "Functionblock",
+      "displayName": "RemoteControlActivationState",
+      "description": "This status indicates whether the allowance for remote controlling is enabled.",
+      "category": "smarthome",
+      "fileName": "RemoteControlActivationState.fbmodel",
+      "modelType": "FunctionblockModel",
+      "references": [],
+      "configurationProperties": [],
+      "statusProperties": [
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": true,
+          "name": "currentState",
+          "description": "true if remote control is activated, false otherwise",
+          "type": "BOOLEAN",
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": true
+        }
+      ],
+      "faultProperties": [],
+      "events": [
+        {
+          "name": "RemoteControlActivationChanged",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": "BOOLEAN",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        }
+      ],
+      "operations": [],
+      "superType": null
+    },
+    "com.bshg.common:RemoteStartAllowanceState:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "RemoteStartAllowanceState",
+        "namespace": "com.bshg.common",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.common:RemoteStartAllowanceState:2.0.0"
+      },
+      "type": "Functionblock",
+      "displayName": "RemoteStartAllowanceState",
+      "description": "This status indicates whether the remote program start is enabled. This can happen due to a programmatic change (only disabling), or manually by the user changing the flag locally on the home appliance, or automatically after a certain duration - usually 24 hours.",
+      "category": "smarthome",
+      "fileName": "RemoteStartAllowanceState.fbmodel",
+      "modelType": "FunctionblockModel",
+      "references": [],
+      "configurationProperties": [],
+      "statusProperties": [
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": true,
+          "name": "currentState",
+          "description": "true if remote start is activated, false otherwise",
+          "type": "BOOLEAN",
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": true
+        }
+      ],
+      "faultProperties": [],
+      "events": [
+        {
+          "name": "RemoteStarAllowanceChanged",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": "BOOLEAN",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        }
+      ],
+      "operations": [],
+      "superType": null
+    },
+    "com.bshg.types.common:OperationState:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "OperationState",
+        "namespace": "com.bshg.types.common",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+      },
+      "type": "Datatype",
+      "displayName": "OperationState",
+      "description": "Enumeration of the Operation state of the home appliance.",
+      "category": "smarthome",
+      "fileName": "OperationState.type",
+      "modelType": "EnumModel",
+      "references": [],
+      "literals": [
+        {
+          "name": "Inactive",
+          "description": "Home appliance is switched off or in standby",
+          "parent": {
+            "name": "OperationState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+          }
+        },
+        {
+          "name": "Ready",
+          "description": "Home appliance is switched on. No program has been activated",
+          "parent": {
+            "name": "OperationState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+          }
+        },
+        {
+          "name": "DelayedStart",
+          "description": "A program has been activated but has not been started yet if a delayed start has been configured",
+          "parent": {
+            "name": "OperationState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+          }
+        },
+        {
+          "name": "Run",
+          "description": "A program is currently activated and runs.",
+          "parent": {
+            "name": "OperationState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+          }
+        },
+        {
+          "name": "Pause",
+          "description": "An activated program has been paused",
+          "parent": {
+            "name": "OperationState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+          }
+        },
+        {
+          "name": "ActionRequired",
+          "description": "The activated program requires a user interaction",
+          "parent": {
+            "name": "OperationState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+          }
+        },
+        {
+          "name": "Finished",
+          "description": "The activated program has finished or has been aborted successfully",
+          "parent": {
+            "name": "OperationState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+          }
+        },
+        {
+          "name": "Error",
+          "description": "The home appliance is in an error state",
+          "parent": {
+            "name": "OperationState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+          }
+        },
+        {
+          "name": "Aborting",
+          "description": "The activated program is currently aborting",
+          "parent": {
+            "name": "OperationState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+          }
+        }
+      ]
+    },
+    "com.bshg.types.programs.washer.options:Program:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "Program",
+        "namespace": "com.bshg.types.programs.washer.options",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+      },
+      "type": "Datatype",
+      "displayName": "Program",
+      "description": "Type for Washer Program",
+      "category": "smarthome",
+      "fileName": "Program.type",
+      "modelType": "EnumModel",
+      "references": [],
+      "literals": [
+        {
+          "name": "Cotton",
+          "description": "For cleaning cotton or linen clothing with normal to heavy soiling. (Max. load. If Speed Perfect function is selected: 5 kg)",
+          "parent": {
+            "name": "Program",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+          }
+        },
+        {
+          "name": "EasyCare",
+          "description": "For washing easy-care laundry made from synthetic or mixed fibres, such as polyamide and polyester. (Max. load: 4.0 kg)",
+          "parent": {
+            "name": "Program",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+          }
+        },
+        {
+          "name": "Mix",
+          "description": "For cleaning different fabrics (cottons, synthetic and mixed fibres) in the same laundry load. Suitable for laundry with light to normal soiling. (Max. load: 4.0 kg)",
+          "parent": {
+            "name": "Program",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+          }
+        },
+        {
+          "name": "DelicatesSilk",
+          "description": "For cleaning delicate fabrics such as silk, satin and viscose. Reduced spin for optimal fabric care. It is recommended to use a mild detergent. (Max. load: 2.0 kg)",
+          "parent": {
+            "name": "Program",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+          }
+        },
+        {
+          "name": "Wool",
+          "description": "For gentle washing of items made from wool, such as cashmere and sheep's wool. Reduced drum movement to prevent felting and shrinking. Particularly gentle, can be used in place of hand-washing. It is recommended to use a detergent specifically for woollens. (Max. load: 2.0 kg)",
+          "parent": {
+            "name": "Program",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Program:2.0.0"
+          }
+        }
+      ]
+    },
+    "com.bshg.common:PowerState:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "PowerState",
+        "namespace": "com.bshg.common",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.common:PowerState:2.0.0"
+      },
+      "type": "Functionblock",
+      "displayName": "PowerState",
+      "description": "This setting describes the current power state of the home appliance",
+      "category": "smarthome",
+      "fileName": "PowerState.fbmodel",
+      "modelType": "FunctionblockModel",
+      "references": [
+        {
+          "name": "PowerState",
+          "namespace": "com.bshg.types.common",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.types.common:PowerState:2.0.0"
+        },
+        {
+          "name": "PowerState",
+          "namespace": "com.bshg.types.common",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.types.common:PowerState:2.0.0"
+        }
+      ],
+      "configurationProperties": [
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": true,
+          "name": "state",
+          "description": null,
+          "type": {
+            "name": "PowerState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:PowerState:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        }
+      ],
+      "statusProperties": [],
+      "faultProperties": [],
+      "events": [
+        {
+          "name": "PowerStateChanged",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": {
+                "name": "PowerState",
+                "namespace": "com.bshg.types.common",
+                "version": "2.0.0",
+                "prettyFormat": "com.bshg.types.common:PowerState:2.0.0"
+              },
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": false
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        }
+      ],
+      "operations": [],
+      "superType": null
+    },
+    "com.bshg.types.common:EventPresentState:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "EventPresentState",
+        "namespace": "com.bshg.types.common",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.types.common:EventPresentState:2.0.0"
+      },
+      "type": "Datatype",
+      "displayName": "EventPresentState",
+      "description": "Type for EventPresentState",
+      "category": "demo",
+      "fileName": "EventPresentState.type",
+      "modelType": "EnumModel",
+      "references": [],
+      "literals": [
+        {
+          "name": "Present",
+          "description": "The event occurred and is present.",
+          "parent": {
+            "name": "EventPresentState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:EventPresentState:2.0.0"
+          }
+        },
+        {
+          "name": "Off",
+          "description": "The event is off.",
+          "parent": {
+            "name": "EventPresentState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:EventPresentState:2.0.0"
+          }
+        },
+        {
+          "name": "Confirmed",
+          "description": "The event has been confirmed by the user.",
+          "parent": {
+            "name": "EventPresentState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:EventPresentState:2.0.0"
+          }
+        }
+      ]
+    },
+    "com.bshg.types.common:DoorState:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "DoorState",
+        "namespace": "com.bshg.types.common",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.types.common:DoorState:2.0.0"
+      },
+      "type": "Datatype",
+      "displayName": "DoorState",
+      "description": "This enumeration describes the state of the door of the BSH home appliance.",
+      "category": "demo",
+      "fileName": "DoorState.type",
+      "modelType": "EnumModel",
+      "references": [],
+      "literals": [
+        {
+          "name": "Open",
+          "description": "The door of the home appliance is open.",
+          "parent": {
+            "name": "DoorState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:DoorState:2.0.0"
+          }
+        },
+        {
+          "name": "Closed",
+          "description": "The door of the home appliance is closed but not locked.",
+          "parent": {
+            "name": "DoorState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:DoorState:2.0.0"
+          }
+        },
+        {
+          "name": "Locked",
+          "description": "The door of the home appliance is open.",
+          "parent": {
+            "name": "DoorState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:DoorState:2.0.0"
+          }
+        }
+      ]
+    },
+    "com.bshg.common:OperationState:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "OperationState",
+        "namespace": "com.bshg.common",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.common:OperationState:2.0.0"
+      },
+      "type": "Functionblock",
+      "displayName": "OperationState",
+      "description": "This status describes the operation state of the home appliance.",
+      "category": "smarthome",
+      "fileName": "OperationState.fbmodel",
+      "modelType": "FunctionblockModel",
+      "references": [],
+      "configurationProperties": [],
+      "statusProperties": [
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": true,
+          "name": "currentState",
+          "description": null,
+          "type": {
+            "name": "OperationState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        }
+      ],
+      "faultProperties": [],
+      "events": [
+        {
+          "name": "OperationStateChanged",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "currentState",
+              "description": null,
+              "type": {
+                "name": "OperationState",
+                "namespace": "com.bshg.types.common",
+                "version": "2.0.0",
+                "prettyFormat": "com.bshg.types.common:OperationState:2.0.0"
+              },
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": false
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        }
+      ],
+      "operations": [],
+      "superType": null
+    },
+    "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "SpinSpeed",
+        "namespace": "com.bshg.types.programs.washer.options",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+      },
+      "type": "Datatype",
+      "displayName": "SpinSpeed",
+      "description": "Type for Washer SpinSpeed",
+      "category": "smarthome",
+      "fileName": "SpinSpeed.type",
+      "modelType": "EnumModel",
+      "references": [],
+      "literals": [
+        {
+          "name": "Off",
+          "description": "The washer will not spin.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        },
+        {
+          "name": "RPM400",
+          "description": "The washer will spin with 400 rpm.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        },
+        {
+          "name": "RPM600",
+          "description": "The washer will spin with 600 rpm.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        },
+        {
+          "name": "RPM800",
+          "description": "The washer will spin with 800 rpm.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        },
+        {
+          "name": "RPM1000",
+          "description": "The washer will spin with 1000 rpm.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        },
+        {
+          "name": "RPM1200",
+          "description": "The washer will spin with 1200 rpm.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        },
+        {
+          "name": "RPM1400",
+          "description": "The washer will spin with 1400 rpm.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        },
+        {
+          "name": "RPM1600",
+          "description": "The washer will spin with 1600 rpm.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        },
+        {
+          "name": "UINo",
+          "description": "The washer will not spin.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        },
+        {
+          "name": "UILow",
+          "description": "The washer will spin with low spin speed.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        },
+        {
+          "name": "UIMedium",
+          "description": "The washer will spin with medium spin speed.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        },
+        {
+          "name": "UIHigh",
+          "description": "The washer will spin with high spin speed.",
+          "parent": {
+            "name": "SpinSpeed",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:SpinSpeed:2.0.0"
+          }
+        }
+      ]
+    },
+    "com.bshg.types.common:PowerState:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "PowerState",
+        "namespace": "com.bshg.types.common",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.types.common:PowerState:2.0.0"
+      },
+      "type": "Datatype",
+      "displayName": "PowerState",
+      "description": "This setting  describes the current power state of the home appliance.",
+      "category": "smarthome",
+      "fileName": "PowerState.type",
+      "modelType": "EnumModel",
+      "references": [],
+      "literals": [
+        {
+          "name": "On",
+          "description": "The home appliance switched to on state",
+          "parent": {
+            "name": "PowerState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:PowerState:2.0.0"
+          }
+        },
+        {
+          "name": "Off",
+          "description": "The home appliance switched to off state",
+          "parent": {
+            "name": "PowerState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:PowerState:2.0.0"
+          }
+        },
+        {
+          "name": "Standby",
+          "description": "The home appliance went to standby mode",
+          "parent": {
+            "name": "PowerState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:PowerState:2.0.0"
+          }
+        }
+      ]
+    },
+    "com.bshg:WasherWAT286H8SG:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "WasherWAT286H8SG",
+        "namespace": "com.bshg",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg:WasherWAT286H8SG:2.0.0"
+      },
+      "type": "InformationModel",
+      "displayName": "WasherWAT286H8SG",
+      "description": "Information model for BSH Washer WAT286H8SG",
+      "category": "smarthome",
+      "fileName": "WasherWAT286H8SG.infomodel",
+      "modelType": "Infomodel",
+      "references": [
+        {
+          "name": "Washer",
+          "namespace": "com.bshg.programs",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.programs:Washer:2.0.0"
+        },
+        {
+          "name": "RemoteControlActivationState",
+          "namespace": "com.bshg.common",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.common:RemoteControlActivationState:2.0.0"
+        },
+        {
+          "name": "RemoteStartAllowanceState",
+          "namespace": "com.bshg.common",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.common:RemoteStartAllowanceState:2.0.0"
+        },
+        {
+          "name": "LocalControlState",
+          "namespace": "com.bshg.common",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.common:LocalControlState:2.0.0"
+        },
+        {
+          "name": "OperationState",
+          "namespace": "com.bshg.common",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.common:OperationState:2.0.0"
+        },
+        {
+          "name": "DoorState",
+          "namespace": "com.bshg.common",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.common:DoorState:2.0.0"
+        },
+        {
+          "name": "PowerState",
+          "namespace": "com.bshg.common",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.common:PowerState:2.0.0"
+        }
+      ],
+      "functionblocks": [
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": false,
+          "name": "washer",
+          "description": null,
+          "type": {
+            "name": "Washer",
+            "namespace": "com.bshg.programs",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.programs:Washer:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        },
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": false,
+          "name": "remoteControlActivationState",
+          "description": null,
+          "type": {
+            "name": "RemoteControlActivationState",
+            "namespace": "com.bshg.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.common:RemoteControlActivationState:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        },
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": false,
+          "name": "remoteStartAllowanceState",
+          "description": null,
+          "type": {
+            "name": "RemoteStartAllowanceState",
+            "namespace": "com.bshg.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.common:RemoteStartAllowanceState:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        },
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": false,
+          "name": "localControlState",
+          "description": null,
+          "type": {
+            "name": "LocalControlState",
+            "namespace": "com.bshg.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.common:LocalControlState:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        },
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": false,
+          "name": "operationState",
+          "description": null,
+          "type": {
+            "name": "OperationState",
+            "namespace": "com.bshg.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.common:OperationState:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        },
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": false,
+          "name": "doorState",
+          "description": null,
+          "type": {
+            "name": "DoorState",
+            "namespace": "com.bshg.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.common:DoorState:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        },
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": false,
+          "name": "powerState",
+          "description": null,
+          "type": {
+            "name": "PowerState",
+            "namespace": "com.bshg.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.common:PowerState:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        }
+      ]
+    },
+    "com.bshg.types.programs.washer.options:Temperature:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "Temperature",
+        "namespace": "com.bshg.types.programs.washer.options",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+      },
+      "type": "Datatype",
+      "displayName": "Temperature",
+      "description": "Type for Washer Temperature",
+      "category": "smarthome",
+      "fileName": "Temperature.type",
+      "modelType": "EnumModel",
+      "references": [],
+      "literals": [
+        {
+          "name": "Cold",
+          "description": "Cold Water",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "GC20",
+          "description": "Optimal for 20C washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "GC30",
+          "description": "Optimal for 30C washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "GC40",
+          "description": "Optimal for 40C washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "GC50",
+          "description": "Optimal for 50C washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "GC60",
+          "description": "Optimal for 60C washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "GC70",
+          "description": "Optimal for 70C washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "GC80",
+          "description": "Optimal for 80C washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "GC90",
+          "description": "Optimal for 90C washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "UICold",
+          "description": "Optimal for cold washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "UIWarm",
+          "description": "Optimal for warm washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "UIHot",
+          "description": "Optimal for hot washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        },
+        {
+          "name": "UIExtraHot",
+          "description": "Optimal for extra hot washable clothes",
+          "parent": {
+            "name": "Temperature",
+            "namespace": "com.bshg.types.programs.washer.options",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.programs.washer.options:Temperature:2.0.0"
+          }
+        }
+      ]
+    },
+    "com.bshg.common:LocalControlState:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "LocalControlState",
+        "namespace": "com.bshg.common",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.common:LocalControlState:2.0.0"
+      },
+      "type": "Functionblock",
+      "displayName": "LocalControlState",
+      "description": "This status indicates whether the home appliance is currently manually controlled by the user operating the home appliance, e.g. opening the door or pressing a button. After a few seconds without user intervention this flag is reverted and an appropriate event is sent.",
+      "category": "smarthome",
+      "fileName": "LocalControlState.fbmodel",
+      "modelType": "FunctionblockModel",
+      "references": [],
+      "configurationProperties": [],
+      "statusProperties": [
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": true,
+          "name": "currentState",
+          "description": "true if the home appliance is currently operated locally, false otherwise",
+          "type": "BOOLEAN",
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": true
+        }
+      ],
+      "faultProperties": [],
+      "events": [
+        {
+          "name": "LocalControlChanged",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": "BOOLEAN",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        }
+      ],
+      "operations": [],
+      "superType": null
+    },
+    "com.bshg.common:DoorState:2.0.0": {
+      "targetPlatformKey": "jsonschema",
+      "stereotypes": [],
+      "mappingReference": null,
+      "vortolang": "1.0",
+      "id": {
+        "name": "DoorState",
+        "namespace": "com.bshg.common",
+        "version": "2.0.0",
+        "prettyFormat": "com.bshg.common:DoorState:2.0.0"
+      },
+      "type": "Functionblock",
+      "displayName": "DoorState",
+      "description": "This status describes the state of the door of the home appliance. A change of that status is either triggered by the user operating the home appliance locally (i.e. opening/closing door) or automatically by the home appliance (i.e. locking the door)",
+      "category": "smarthome",
+      "fileName": "DoorState.fbmodel",
+      "modelType": "FunctionblockModel",
+      "references": [
+        {
+          "name": "DoorState",
+          "namespace": "com.bshg.types.common",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.types.common:DoorState:2.0.0"
+        },
+        {
+          "name": "DoorState",
+          "namespace": "com.bshg.types.common",
+          "version": "2.0.0",
+          "prettyFormat": "com.bshg.types.common:DoorState:2.0.0"
+        }
+      ],
+      "configurationProperties": [],
+      "statusProperties": [
+        {
+          "targetPlatformKey": null,
+          "stereotypes": [],
+          "mappingReference": null,
+          "mandatory": true,
+          "name": "currentState",
+          "description": null,
+          "type": {
+            "name": "DoorState",
+            "namespace": "com.bshg.types.common",
+            "version": "2.0.0",
+            "prettyFormat": "com.bshg.types.common:DoorState:2.0.0"
+          },
+          "constraints": [],
+          "attributes": [],
+          "multiple": false,
+          "primitive": false
+        }
+      ],
+      "faultProperties": [],
+      "events": [
+        {
+          "name": "DoorStateChanged",
+          "properties": [
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "timestamp",
+              "description": null,
+              "type": "LONG",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "value",
+              "description": null,
+              "type": {
+                "name": "DoorState",
+                "namespace": "com.bshg.types.common",
+                "version": "2.0.0",
+                "prettyFormat": "com.bshg.types.common:DoorState:2.0.0"
+              },
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": false
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "level",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            },
+            {
+              "targetPlatformKey": null,
+              "stereotypes": [],
+              "mappingReference": null,
+              "mandatory": true,
+              "name": "handling",
+              "description": null,
+              "type": "STRING",
+              "constraints": [],
+              "attributes": [],
+              "multiple": false,
+              "primitive": true
+            }
+          ]
+        }
+      ],
+      "operations": [],
+      "superType": null
+    }
+  }
+}

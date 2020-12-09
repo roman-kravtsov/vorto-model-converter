@@ -1,0 +1,22 @@
+{
+  "name": "vorto-model-converter",
+  "version": "1.0.0",
+  "description": "Converter of Vorto Models into Thing Models",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js ./examples/vorto-model.json"
+  },
+  "author": "Roman Kravtsov",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "prettier": "2.1.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "lodash": "^4.17.20"
+  }
+}
