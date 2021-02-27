@@ -86,20 +86,22 @@
       "type": "object",
       "properties": {
         "currentState": {
-          "OperationState": {
-            "name": "OperationState",
-            "type": "string",
-            "enum": [
-              "Inactive",
-              "Ready",
-              "DelayedStart",
-              "Run",
-              "Pause",
-              "ActionRequired",
-              "Finished",
-              "Error",
-              "Aborting"
-            ]
+          "properties": {
+            "OperationState": {
+              "name": "OperationState",
+              "type": "string",
+              "enum": [
+                "Inactive",
+                "Ready",
+                "DelayedStart",
+                "Run",
+                "Pause",
+                "ActionRequired",
+                "Finished",
+                "Error",
+                "Aborting"
+              ]
+            }
           },
           "type": "object"
         }
@@ -124,7 +126,73 @@
       }
     }
   },
-  "actions": {},
+  "actions": {
+    "startWashing": {
+      "title": "startWashing",
+      "input": {
+        "type": "object",
+        "properties": {
+          "program": {
+            "properties": {
+              "Program": {
+                "name": "Program",
+                "type": "string",
+                "enum": ["Cotton", "EasyCare", "Mix", "DelicatesSilk", "Wool"]
+              }
+            },
+            "type": "object"
+          },
+          "temperature": {
+            "properties": {
+              "Temperature": {
+                "name": "Temperature",
+                "type": "string",
+                "enum": [
+                  "Cold",
+                  "GC20",
+                  "GC30",
+                  "GC40",
+                  "GC50",
+                  "GC60",
+                  "GC70",
+                  "GC80",
+                  "GC90",
+                  "UICold",
+                  "UIWarm",
+                  "UIHot",
+                  "UIExtraHot"
+                ]
+              }
+            },
+            "type": "object"
+          },
+          "spinSpeed": {
+            "properties": {
+              "SpinSpeed": {
+                "name": "SpinSpeed",
+                "type": "string",
+                "enum": [
+                  "Off",
+                  "RPM400",
+                  "RPM600",
+                  "RPM800",
+                  "RPM1000",
+                  "RPM1200",
+                  "RPM1400",
+                  "RPM1600",
+                  "UINo",
+                  "UILow",
+                  "UIMedium",
+                  "UIHigh"
+                ]
+              }
+            },
+            "type": "object"
+          }
+        }
+      }
+    }
+  },
   "events": {
     "SelectedProgramChanges": {
       "name": "SelectedProgramChanges",
@@ -136,10 +204,12 @@
             "type": "integer"
           },
           "value": {
-            "Program": {
-              "name": "Program",
-              "type": "string",
-              "enum": ["Cotton", "EasyCare", "Mix", "DelicatesSilk", "Wool"]
+            "properties": {
+              "Program": {
+                "name": "Program",
+                "type": "string",
+                "enum": ["Cotton", "EasyCare", "Mix", "DelicatesSilk", "Wool"]
+              }
             },
             "type": "object"
           },
@@ -164,10 +234,12 @@
             "type": "integer"
           },
           "value": {
-            "Program": {
-              "name": "Program",
-              "type": "string",
-              "enum": ["Cotton", "EasyCare", "Mix", "DelicatesSilk", "Wool"]
+            "properties": {
+              "Program": {
+                "name": "Program",
+                "type": "string",
+                "enum": ["Cotton", "EasyCare", "Mix", "DelicatesSilk", "Wool"]
+              }
             },
             "type": "object"
           },
@@ -192,24 +264,26 @@
             "type": "integer"
           },
           "value": {
-            "Temperature": {
-              "name": "Temperature",
-              "type": "string",
-              "enum": [
-                "Cold",
-                "GC20",
-                "GC30",
-                "GC40",
-                "GC50",
-                "GC60",
-                "GC70",
-                "GC80",
-                "GC90",
-                "UICold",
-                "UIWarm",
-                "UIHot",
-                "UIExtraHot"
-              ]
+            "properties": {
+              "Temperature": {
+                "name": "Temperature",
+                "type": "string",
+                "enum": [
+                  "Cold",
+                  "GC20",
+                  "GC30",
+                  "GC40",
+                  "GC50",
+                  "GC60",
+                  "GC70",
+                  "GC80",
+                  "GC90",
+                  "UICold",
+                  "UIWarm",
+                  "UIHot",
+                  "UIExtraHot"
+                ]
+              }
             },
             "type": "object"
           },
@@ -234,23 +308,25 @@
             "type": "integer"
           },
           "value": {
-            "SpinSpeed": {
-              "name": "SpinSpeed",
-              "type": "string",
-              "enum": [
-                "Off",
-                "RPM400",
-                "RPM600",
-                "RPM800",
-                "RPM1000",
-                "RPM1200",
-                "RPM1400",
-                "RPM1600",
-                "UINo",
-                "UILow",
-                "UIMedium",
-                "UIHigh"
-              ]
+            "properties": {
+              "SpinSpeed": {
+                "name": "SpinSpeed",
+                "type": "string",
+                "enum": [
+                  "Off",
+                  "RPM400",
+                  "RPM600",
+                  "RPM800",
+                  "RPM1000",
+                  "RPM1200",
+                  "RPM1400",
+                  "RPM1600",
+                  "UINo",
+                  "UILow",
+                  "UIMedium",
+                  "UIHigh"
+                ]
+              }
             },
             "type": "object"
           },
@@ -331,10 +407,12 @@
             "type": "integer"
           },
           "value": {
-            "EventPresentState": {
-              "name": "EventPresentState",
-              "type": "string",
-              "enum": ["Present", "Off", "Confirmed"]
+            "properties": {
+              "EventPresentState": {
+                "name": "EventPresentState",
+                "type": "string",
+                "enum": ["Present", "Off", "Confirmed"]
+              }
             },
             "type": "object"
           },
@@ -431,20 +509,22 @@
             "type": "integer"
           },
           "currentState": {
-            "OperationState": {
-              "name": "OperationState",
-              "type": "string",
-              "enum": [
-                "Inactive",
-                "Ready",
-                "DelayedStart",
-                "Run",
-                "Pause",
-                "ActionRequired",
-                "Finished",
-                "Error",
-                "Aborting"
-              ]
+            "properties": {
+              "OperationState": {
+                "name": "OperationState",
+                "type": "string",
+                "enum": [
+                  "Inactive",
+                  "Ready",
+                  "DelayedStart",
+                  "Run",
+                  "Pause",
+                  "ActionRequired",
+                  "Finished",
+                  "Error",
+                  "Aborting"
+                ]
+              }
             },
             "type": "object"
           },
@@ -469,10 +549,12 @@
             "type": "integer"
           },
           "value": {
-            "DoorState": {
-              "name": "DoorState",
-              "type": "string",
-              "enum": ["Open", "Closed", "Locked"]
+            "properties": {
+              "DoorState": {
+                "name": "DoorState",
+                "type": "string",
+                "enum": ["Open", "Closed", "Locked"]
+              }
             },
             "type": "object"
           },
@@ -497,10 +579,12 @@
             "type": "integer"
           },
           "value": {
-            "PowerState": {
-              "name": "PowerState",
-              "type": "string",
-              "enum": ["On", "Off", "Standby"]
+            "properties": {
+              "PowerState": {
+                "name": "PowerState",
+                "type": "string",
+                "enum": ["On", "Off", "Standby"]
+              }
             },
             "type": "object"
           },
@@ -516,8 +600,8 @@
       }
     }
   },
-  "created": "2021-02-27T15:51:25.585Z",
-  "modified": "2021-02-27T15:51:25.585Z",
+  "created": "2021-02-27T17:40:03.805Z",
+  "modified": "2021-02-27T17:40:03.805Z",
   "@context": ["https://www.w3.org/2019/wot/td/v1"],
   "@type": "Thing",
   "description": "Information model for BSH Washer WAT286H8SG",

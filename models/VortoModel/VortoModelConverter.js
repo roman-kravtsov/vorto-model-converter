@@ -86,23 +86,25 @@ class VortoModelConverter extends Converter {
     }
     return events;
   }
-  __mapStatusProperty(statusProperty) {
-    const type = typeof statusProperty.type;
-    switch (type) {
-      case "object":
-        return {
-          ...this.__constructThingModelProperty(
-            this.__getReference(statusProperty.type)
-          ),
-          type: "object",
-        };
-      case "string":
-        return {
-          name: statusProperty.name,
-          type: this.__mapType(statusProperty.type.toLowerCase()),
-        };
-      // case "BOOLEAN":
+
+  __mapAction(operation) {
+    const { propertyData: data } = this.__mapStatusProperties(operation.params);
+    console.log(data);
+    return {
+      title: operation.name,
+      input: { type: "object", properties: data.properties },
+    };
+  }
+
+  __mapActions(operations) {
+    let mappedActions = {};
+    for (const operation of operations) {
+      mappedActions = {
+        ...mappedActions,
+        [operation.name]: this.__mapAction(operation),
+      };
     }
+    return mappedActions;
   }
 
   __mapEvent(event) {
@@ -122,6 +124,41 @@ class VortoModelConverter extends Converter {
       };
     }
     return mappedEvents;
+  }
+
+  __mapReferencesToActions(references) {
+    if (references.length === 1) {
+      const model = this.__getReference(references[0]);
+
+      return { ...this.__mapActions(model.operations) };
+    }
+    let actions = {};
+    for (const reference of references) {
+      const model = this.__getReference(reference);
+      actions = {
+        ...actions,
+        ...this.__mapActions(model.operations),
+      };
+    }
+    return actions;
+  }
+  __mapStatusProperty(statusProperty) {
+    const type = typeof statusProperty.type;
+    switch (type) {
+      case "object":
+        return {
+          properties: this.__constructThingModelProperty(
+            this.__getReference(statusProperty.type)
+          ),
+          type: "object",
+        };
+      case "string":
+        return {
+          name: statusProperty.name,
+          type: this.__mapType(statusProperty.type.toLowerCase()),
+        };
+      // case "BOOLEAN":
+    }
   }
 
   __mapStatusProperties(statusProperties) {
@@ -199,6 +236,10 @@ class VortoModelConverter extends Converter {
     return this.__mapReferencesToEvents(this.mainModel.references);
   }
 
+  __constructThingModelActions() {
+    return this.__mapReferencesToActions(this.mainModel.references);
+  }
+
   /**
    * Map properties of a Thing Model to the properties of a Thing Description
    *
@@ -210,7 +251,9 @@ class VortoModelConverter extends Converter {
    * Map actions of a Thing Model to the actions of a Thing Description
    *
    */
-  mapActions() {}
+  mapActions() {
+    this.targetModel.actions = this.__constructThingModelActions();
+  }
 
   /**
    * Map events of a Thing Model to the events of a Thing Description
@@ -237,7 +280,7 @@ class VortoModelConverter extends Converter {
     this.targetModel.description = this.mainModel.description;
     this.targetModel.title = this.mainModel.displayName;
     this.mapProperties();
-    // this.mapActions();
+    this.mapActions();
     this.mapEvents();
     return this.targetModel;
   }
