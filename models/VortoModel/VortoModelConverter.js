@@ -70,6 +70,25 @@ class VortoModelConverter extends Converter {
     return { propertyData: properties, type: "object" };
   }
 
+  __mapEvent(event) {
+    const { propertyData: data } = this.__mapStatusProperties(event.properties);
+    return {
+      name: event.name,
+      data: { type: "object", properties: data.properties },
+    };
+  }
+
+  __mapEvents(events) {
+    let mappedEvents = {};
+    for (const event of events) {
+      mappedEvents = {
+        ...mappedEvents,
+        [event.name]: this.__mapEvent(event),
+      };
+    }
+    return mappedEvents;
+  }
+
   __mapReferencesToEvents(references) {
     if (references.length === 1) {
       const model = this.__getReference(references[0]);
@@ -89,7 +108,6 @@ class VortoModelConverter extends Converter {
 
   __mapAction(operation) {
     const { propertyData: data } = this.__mapStatusProperties(operation.params);
-    console.log(data);
     return {
       title: operation.name,
       input: { type: "object", properties: data.properties },
@@ -105,25 +123,6 @@ class VortoModelConverter extends Converter {
       };
     }
     return mappedActions;
-  }
-
-  __mapEvent(event) {
-    const { propertyData: data } = this.__mapStatusProperties(event.properties);
-    return {
-      name: event.name,
-      data: { type: "object", properties: data.properties },
-    };
-  }
-
-  __mapEvents(events) {
-    let mappedEvents = {};
-    for (const event of events) {
-      mappedEvents = {
-        ...mappedEvents,
-        [event.name]: this.__mapEvent(event),
-      };
-    }
-    return mappedEvents;
   }
 
   __mapReferencesToActions(references) {
@@ -225,34 +224,24 @@ class VortoModelConverter extends Converter {
     };
   }
 
-  __constructThingModelProperties() {
-    let { propertyData: properties } = this.__mapReferencesToProperty(
-      this.mainModel.references
-    );
-    return properties;
-  }
-
-  __constructThingModelEvents() {
-    return this.__mapReferencesToEvents(this.mainModel.references);
-  }
-
-  __constructThingModelActions() {
-    return this.__mapReferencesToActions(this.mainModel.references);
-  }
-
   /**
    * Map properties of a Thing Model to the properties of a Thing Description
    *
    */
   mapProperties() {
-    this.targetModel.properties = this.__constructThingModelProperties();
+    let { propertyData: properties } = this.__mapReferencesToProperty(
+      this.mainModel.references
+    );
+    this.targetModel.properties = properties;
   }
   /**
    * Map actions of a Thing Model to the actions of a Thing Description
    *
    */
   mapActions() {
-    this.targetModel.actions = this.__constructThingModelActions();
+    this.targetModel.actions = this.__mapReferencesToActions(
+      this.mainModel.references
+    );
   }
 
   /**
@@ -260,7 +249,9 @@ class VortoModelConverter extends Converter {
    *
    */
   mapEvents() {
-    this.targetModel.events = this.__constructThingModelEvents();
+    this.targetModel.events = this.__mapReferencesToEvents(
+      this.mainModel.references
+    );
   }
 
   /**
