@@ -23,6 +23,23 @@ class VortoModelConverter extends Converter {
     this.rootData = data;
     this.modelName = name;
     this.mainModel = data.models[data.root.prettyFormat];
+    this.typeMap = {
+      boolean: "boolean",
+      double: "number",
+      dateеime: "date",
+      duration: "string",
+      float: "number",
+      int: "integer",
+      long: "integer",
+      base64иinary: "string",
+      string: "string",
+      short: "integer",
+      byte: "integer",
+    };
+  }
+
+  __mapType(type) {
+    return this.typeMap[type] || "string";
   }
 
   __mapEnumModelToProperty(literals) {
@@ -52,6 +69,23 @@ class VortoModelConverter extends Converter {
     }
     return { propertyData: properties, type: "object" };
   }
+
+  __mapReferencesToEvents(references) {
+    if (references.length === 1) {
+      const model = this.__getReference(references[0]);
+
+      return { ...this.__mapEvents(model.events) };
+    }
+    let events = {};
+    for (const reference of references) {
+      const model = this.__getReference(reference);
+      events = {
+        ...events,
+        ...this.__mapEvents(model.events),
+      };
+    }
+    return events;
+  }
   __mapStatusProperty(statusProperty) {
     const type = typeof statusProperty.type;
     switch (type) {
@@ -65,10 +99,29 @@ class VortoModelConverter extends Converter {
       case "string":
         return {
           name: statusProperty.name,
-          type: statusProperty.type.toLowerCase(),
+          type: this.__mapType(statusProperty.type.toLowerCase()),
         };
       // case "BOOLEAN":
     }
+  }
+
+  __mapEvent(event) {
+    const { propertyData: data } = this.__mapStatusProperties(event.properties);
+    return {
+      name: event.name,
+      data: { type: "object", properties: data.properties },
+    };
+  }
+
+  __mapEvents(events) {
+    let mappedEvents = {};
+    for (const event of events) {
+      mappedEvents = {
+        ...mappedEvents,
+        [event.name]: this.__mapEvent(event),
+      };
+    }
+    return mappedEvents;
   }
 
   __mapStatusProperties(statusProperties) {
@@ -130,8 +183,6 @@ class VortoModelConverter extends Converter {
     let { propertyData, type } = this[this.__getPropertyHandler(propertyType)](
       model[accessKey]
     );
-    if (model.displayName === "OperationState")
-      console.log(model, "\n\n\n", propertyData);
     return {
       [model.displayName]: { name: model.displayName, type, ...propertyData },
     };
@@ -142,6 +193,10 @@ class VortoModelConverter extends Converter {
       this.mainModel.references
     );
     return properties;
+  }
+
+  __constructThingModelEvents() {
+    return this.__mapReferencesToEvents(this.mainModel.references);
   }
 
   /**
@@ -161,7 +216,9 @@ class VortoModelConverter extends Converter {
    * Map events of a Thing Model to the events of a Thing Description
    *
    */
-  mapEvents() {}
+  mapEvents() {
+    this.targetModel.events = this.__constructThingModelEvents();
+  }
 
   /**
    * Convert Vorto Model to a Thing Model
@@ -170,12 +227,18 @@ class VortoModelConverter extends Converter {
    * @memberof VortoModelConverter
    */
   convert() {
-    const now = new Date(Date.now());
     // this.targetModel.created = now;
     // this.targetModel.modified = now;
+    const now = new Date(Date.now());
+    this.targetModel.created = now;
+    this.targetModel.modified = now;
+    this.targetModel["@context"] = ["https://www.w3.org/2019/wot/td/v1"];
+    this.targetModel["@type"] = "Thing";
+    this.targetModel.description = this.mainModel.description;
+    this.targetModel.title = this.mainModel.displayName;
     this.mapProperties();
     // this.mapActions();
-    // this.mapEvents();
+    this.mapEvents();
     return this.targetModel;
   }
 }

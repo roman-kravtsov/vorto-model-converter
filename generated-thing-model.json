@@ -125,5 +125,401 @@
     }
   },
   "actions": {},
-  "events": {}
+  "events": {
+    "SelectedProgramChanges": {
+      "name": "SelectedProgramChanges",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "Program": {
+              "name": "Program",
+              "type": "string",
+              "enum": ["Cotton", "EasyCare", "Mix", "DelicatesSilk", "Wool"]
+            },
+            "type": "object"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ActiveProgramChanged": {
+      "name": "ActiveProgramChanged",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "Program": {
+              "name": "Program",
+              "type": "string",
+              "enum": ["Cotton", "EasyCare", "Mix", "DelicatesSilk", "Wool"]
+            },
+            "type": "object"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "TemperatureChanged": {
+      "name": "TemperatureChanged",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "Temperature": {
+              "name": "Temperature",
+              "type": "string",
+              "enum": [
+                "Cold",
+                "GC20",
+                "GC30",
+                "GC40",
+                "GC50",
+                "GC60",
+                "GC70",
+                "GC80",
+                "GC90",
+                "UICold",
+                "UIWarm",
+                "UIHot",
+                "UIExtraHot"
+              ]
+            },
+            "type": "object"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "SpinSpeedChanged": {
+      "name": "SpinSpeedChanged",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "SpinSpeed": {
+              "name": "SpinSpeed",
+              "type": "string",
+              "enum": [
+                "Off",
+                "RPM400",
+                "RPM600",
+                "RPM800",
+                "RPM1000",
+                "RPM1200",
+                "RPM1400",
+                "RPM1600",
+                "UINo",
+                "UILow",
+                "UIMedium",
+                "UIHigh"
+              ]
+            },
+            "type": "object"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemainingProgramTimeChanged": {
+      "name": "RemainingProgramTimeChanged",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "name": "value",
+            "type": "integer"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          },
+          "unit": {
+            "name": "unit",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ProgramProgress": {
+      "name": "ProgramProgress",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "name": "value",
+            "type": "integer"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          },
+          "unit": {
+            "name": "unit",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ProgramFinished": {
+      "name": "ProgramFinished",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "EventPresentState": {
+              "name": "EventPresentState",
+              "type": "string",
+              "enum": ["Present", "Off", "Confirmed"]
+            },
+            "type": "object"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoteControlActivationChanged": {
+      "name": "RemoteControlActivationChanged",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "name": "value",
+            "type": "boolean"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "RemoteStarAllowanceChanged": {
+      "name": "RemoteStarAllowanceChanged",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "name": "value",
+            "type": "boolean"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "LocalControlChanged": {
+      "name": "LocalControlChanged",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "name": "value",
+            "type": "boolean"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "OperationStateChanged": {
+      "name": "OperationStateChanged",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "currentState": {
+            "OperationState": {
+              "name": "OperationState",
+              "type": "string",
+              "enum": [
+                "Inactive",
+                "Ready",
+                "DelayedStart",
+                "Run",
+                "Pause",
+                "ActionRequired",
+                "Finished",
+                "Error",
+                "Aborting"
+              ]
+            },
+            "type": "object"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "DoorStateChanged": {
+      "name": "DoorStateChanged",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "DoorState": {
+              "name": "DoorState",
+              "type": "string",
+              "enum": ["Open", "Closed", "Locked"]
+            },
+            "type": "object"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "PowerStateChanged": {
+      "name": "PowerStateChanged",
+      "data": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "name": "timestamp",
+            "type": "integer"
+          },
+          "value": {
+            "PowerState": {
+              "name": "PowerState",
+              "type": "string",
+              "enum": ["On", "Off", "Standby"]
+            },
+            "type": "object"
+          },
+          "level": {
+            "name": "level",
+            "type": "string"
+          },
+          "handling": {
+            "name": "handling",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "created": "2021-02-27T15:51:25.585Z",
+  "modified": "2021-02-27T15:51:25.585Z",
+  "@context": ["https://www.w3.org/2019/wot/td/v1"],
+  "@type": "Thing",
+  "description": "Information model for BSH Washer WAT286H8SG",
+  "title": "WasherWAT286H8SG"
 }
