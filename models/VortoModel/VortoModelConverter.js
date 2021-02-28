@@ -31,7 +31,7 @@ class VortoModelConverter extends Converter {
       float: "number",
       int: "integer",
       long: "integer",
-      base64иinary: "string",
+      base64binary: "string",
       string: "string",
       short: "integer",
       byte: "integer",
