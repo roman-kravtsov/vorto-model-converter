@@ -1,0 +1,322 @@
+{
+	"root": {
+		"name": "MeArm",
+		"namespace": "com.incquery",
+		"version": "1.0.0",
+		"prettyFormat": "com.incquery:MeArm:1.0.0"
+	},
+	"models": {
+		"com.incquery:SimpleItemMover:1.0.0": {
+			"targetPlatformKey": "jsonschema",
+			"stereotypes": [],
+			"mappingReference": null,
+			"vortolang": "1.0",
+			"id": {
+				"name": "SimpleItemMover",
+				"namespace": "com.incquery",
+				"version": "1.0.0",
+				"prettyFormat": "com.incquery:SimpleItemMover:1.0.0"
+			},
+			"type": "Functionblock",
+			"displayName": "SimpleItemMoverg",
+			"description": "Functionblock for SimpleItemMoving",
+			"category": null,
+			"fileName": "SimpleItemMover.fbmodel",
+			"modelType": "FunctionblockModel",
+			"references": [],
+			"configurationProperties": [],
+			"statusProperties": [],
+			"faultProperties": [],
+			"events": [
+				{
+					"name": "armEnabled",
+					"properties": [
+						{
+							"targetPlatformKey": null,
+							"stereotypes": [],
+							"mappingReference": null,
+							"mandatory": true,
+							"name": "timestamp",
+							"description": null,
+							"type": "DATETIME",
+							"constraints": [],
+							"attributes": [],
+							"multiple": false,
+							"primitive": true
+						}
+					]
+				},
+				{
+					"name": "armDisabled",
+					"properties": [
+						{
+							"targetPlatformKey": null,
+							"stereotypes": [],
+							"mappingReference": null,
+							"mandatory": true,
+							"name": "timestamp",
+							"description": null,
+							"type": "DATETIME",
+							"constraints": [],
+							"attributes": [],
+							"multiple": false,
+							"primitive": true
+						}
+					]
+				}
+			],
+			"operations": [
+				{
+					"targetPlatformKey": null,
+					"stereotypes": [],
+					"mappingReference": null,
+					"name": "enable",
+					"description": null,
+					"result": null,
+					"params": [
+						{
+							"targetPlatformKey": null,
+							"stereotypes": [],
+							"mappingReference": null,
+							"mandatory": false,
+							"name": "state",
+							"description": null,
+							"type": "BOOLEAN",
+							"constraints": [],
+							"multiple": false,
+							"primitive": true
+						}
+					],
+					"breakable": false
+				},
+				{
+					"targetPlatformKey": null,
+					"stereotypes": [],
+					"mappingReference": null,
+					"name": "executeProgram",
+					"description": "execute the default program on the arm n times",
+					"result": null,
+					"params": [
+						{
+							"targetPlatformKey": null,
+							"stereotypes": [],
+							"mappingReference": null,
+							"mandatory": false,
+							"name": "times",
+							"description": null,
+							"type": "INT",
+							"constraints": [],
+							"multiple": false,
+							"primitive": true
+						}
+					],
+					"breakable": false
+				}
+			],
+			"superType": null
+		},
+		"com.incquery:ArmState:1.0.0": {
+			"targetPlatformKey": "jsonschema",
+			"stereotypes": [],
+			"mappingReference": null,
+			"vortolang": "1.0",
+			"id": {
+				"name": "ArmState",
+				"namespace": "com.incquery",
+				"version": "1.0.0",
+				"prettyFormat": "com.incquery:ArmState:1.0.0"
+			},
+			"type": "Functionblock",
+			"displayName": "ArmState",
+			"description": "Functionblock for ArmState",
+			"category": null,
+			"fileName": "ArmState.fbmodel",
+			"modelType": "FunctionblockModel",
+			"references": [],
+			"configurationProperties": [],
+			"statusProperties": [
+				{
+					"targetPlatformKey": null,
+					"stereotypes": [],
+					"mappingReference": null,
+					"mandatory": true,
+					"name": "enable",
+					"description": "true if the arm is ready for work",
+					"type": "BOOLEAN",
+					"constraints": [],
+					"attributes": [],
+					"multiple": false,
+					"primitive": true
+				},
+				{
+					"targetPlatformKey": null,
+					"stereotypes": [],
+					"mappingReference": null,
+					"mandatory": true,
+					"name": "empty",
+					"description": "true if no item held, otherwise its false",
+					"type": "BOOLEAN",
+					"constraints": [],
+					"attributes": [],
+					"multiple": false,
+					"primitive": true
+				},
+				{
+					"targetPlatformKey": null,
+					"stereotypes": [],
+					"mappingReference": null,
+					"mandatory": true,
+					"name": "maxRange",
+					"description": "distance in mm",
+					"type": "INT",
+					"constraints": [
+						{
+							"type": "MIN",
+							"value": "0"
+						},
+						{
+							"type": "MAX",
+							"value": "320"
+						}
+					],
+					"attributes": [],
+					"multiple": false,
+					"primitive": true
+				},
+				{
+					"targetPlatformKey": null,
+					"stereotypes": [],
+					"mappingReference": null,
+					"mandatory": true,
+					"name": "maxWeight",
+					"description": "weight in g",
+					"type": "INT",
+					"constraints": [
+						{
+							"type": "MIN",
+							"value": "0"
+						},
+						{
+							"type": "MAX",
+							"value": "500"
+						}
+					],
+					"attributes": [],
+					"multiple": false,
+					"primitive": true
+				}
+			],
+			"faultProperties": [],
+			"events": [
+				{
+					"name": "maintenanceRequired",
+					"properties": [
+						{
+							"targetPlatformKey": null,
+							"stereotypes": [],
+							"mappingReference": null,
+							"mandatory": true,
+							"name": "timestamp",
+							"description": null,
+							"type": "DATETIME",
+							"constraints": [],
+							"attributes": [],
+							"multiple": false,
+							"primitive": true
+						}
+					]
+				},
+				{
+					"name": "maintenanceFinished",
+					"properties": [
+						{
+							"targetPlatformKey": null,
+							"stereotypes": [],
+							"mappingReference": null,
+							"mandatory": true,
+							"name": "timestamp",
+							"description": null,
+							"type": "DATETIME",
+							"constraints": [],
+							"attributes": [],
+							"multiple": false,
+							"primitive": true
+						}
+					]
+				}
+			],
+			"operations": [],
+			"superType": null
+		},
+		"com.incquery:MeArm:1.0.0": {
+			"targetPlatformKey": "jsonschema",
+			"stereotypes": [],
+			"mappingReference": null,
+			"vortolang": "1.0",
+			"id": {
+				"name": "MeArm",
+				"namespace": "com.incquery",
+				"version": "1.0.0",
+				"prettyFormat": "com.incquery:MeArm:1.0.0"
+			},
+			"type": "InformationModel",
+			"displayName": "MeArm",
+			"description": "Information Model for MeArm",
+			"category": null,
+			"fileName": "MeArm.infomodel",
+			"modelType": "Infomodel",
+			"references": [
+				{
+					"name": "SimpleItemMover",
+					"namespace": "com.incquery",
+					"version": "1.0.0",
+					"prettyFormat": "com.incquery:SimpleItemMover:1.0.0"
+				},
+				{
+					"name": "ArmState",
+					"namespace": "com.incquery",
+					"version": "1.0.0",
+					"prettyFormat": "com.incquery:ArmState:1.0.0"
+				}
+			],
+			"functionblocks": [
+				{
+					"targetPlatformKey": null,
+					"stereotypes": [],
+					"mappingReference": null,
+					"mandatory": false,
+					"name": "simpleItemMover",
+					"description": "it can execute the preset program",
+					"type": {
+						"name": "SimpleItemMover",
+						"namespace": "com.incquery",
+						"version": "1.0.0",
+						"prettyFormat": "com.incquery:SimpleItemMover:1.0.0"
+					},
+					"constraints": [],
+					"attributes": [],
+					"multiple": false,
+					"primitive": false
+				},
+				{
+					"targetPlatformKey": null,
+					"stereotypes": [],
+					"mappingReference": null,
+					"mandatory": false,
+					"name": "armStatus",
+					"description": null,
+					"type": {
+						"name": "ArmState",
+						"namespace": "com.incquery",
+						"version": "1.0.0",
+						"prettyFormat": "com.incquery:ArmState:1.0.0"
+					},
+					"constraints": [],
+					"attributes": [],
+					"multiple": false,
+					"primitive": false
+				}
+			]
+		}
+	}
+}
