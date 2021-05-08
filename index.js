@@ -9,10 +9,14 @@ const util = require("util");
  */
 async function convert() {
   const { fileName: vortoModelId } = utils.getConsoleArguments();
-  const vortoModel = utils.getDataFromFile(vortoModelId);
-  // const { data: vortoModel } = await vortoApi.get(
-  //   `${VortoModelId}/content/jsonschema`
-  // );
+  // const vortoModel = utils.getDataFromFile(vortoModelId);
+  const { data: vortoModel } = await vortoApi.get(
+    `${vortoModelId}/content/jsonschema`
+  );
+  fs.writeFileSync(
+    "./vorto-exmaple.json",
+    JSON.stringify(vortoModel, null, "\t")
+  );
   // console.log(util.inspect(vortoModel, true, 5));
   const vortoModelConverter = new VortoModelConverter(vortoModel, vortoModelId);
   const thingModel = vortoModelConverter.convert();
